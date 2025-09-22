@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calculadoras Sobral Manutenções</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0077cc">
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js")
+        .then(() => console.log("Service Worker registrado!"));
+    }
+  </script>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div class="logo-container">
+        <img src="data:image/png;base64,BASE64_DA_LOGO" alt="Logo">
+        <h1>Calculadoras Sobral Manutenções</h1>
+      </div>
+      <a href="https://www.instagram.com/sobral_manutencoes?igsh=MWt5ZmI0Mmc5cXQ0MA==" target="_blank">
+        <img class="instagram-icon" src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+      </a>
+    </header>
+
+    <div class="tabs">
+      <div class="tab active" data-tab="calc1">Calculadora 1</div>
+      <div class="tab" data-tab="calc2">Calculadora 2</div>
+      <div class="tab" data-tab="calc3">Motor Trifásico</div>
+    </div>
+
+    <div id="calc1" class="tab-content active">
+      <label for="potencia">Potência Ativa (kW):</label>
+      <input type="number" id="potencia" placeholder="Ex: 100">
+      <label for="fp_atual">Fator de Potência Atual:</label>
+      <input type="number" id="fp_atual" step="0.01" placeholder="Ex: 0.75">
+      <label for="fp_desejado">Fator de Potência Desejado:</label>
+      <input type="number" id="fp_desejado" step="0.01" placeholder="Ex: 0.92">
+      <div class="resultado" id="resultado1"></div>
+    </div>
+
+    <div id="calc2" class="tab-content">
+      <label for="tipo_tensao">Tipo de Tensão:</label>
+      <select id="tipo_tensao">
+        <option value="monofasico">Monofásica</option>
+        <option value="trifasico">Trifásica</option>
+      </select>
+      <label for="tensao">Tensão (V):</label>
+      <input type="number" id="tensao" placeholder="Ex: 220">
+      <label for="kvar">kVAr:</label>
+      <input type="number" id="kvar" placeholder="Digite o kVAr ou a corrente">
+      <label for="corrente">Corrente (A):</label>
+      <input type="number" id="corrente" placeholder="Digite o kVAr ou a corrente">
+      <div class="resultado" id="resultado2"></div>
+    </div>
+
+    <div id="calc3" class="tab-content">
+      <label for="tensao_motor">Tensão (V):</label>
+      <input type="number" id="tensao_motor" placeholder="Ex: 380">
+      <label for="corrente_motor">Corrente (A):</label>
+      <input type="number" id="corrente_motor" placeholder="Ex: 1.15">
+      <label for="fp_motor">Fator de Potência (fp):</label>
+      <input type="number" id="fp_motor" step="0.01" value="0.85">
+      <label for="rendimento_motor">Rendimento (%):</label>
+      <input type="number" id="rendimento_motor" step="1" value="80">
+      <div class="resultado" id="resultado3"></div>
+    </div>
+
+    <footer>
+      <p>© 2025 Sobral Manutenções</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
